@@ -10,14 +10,14 @@ import (
 	"gorm.io/gorm/logger"
 )
 
-type DbInstance struct {
+type DBInstance struct {
 	Db *gorm.DB
 }
 
-var Database DbInstance
+var Database DBInstance
 
 func ConnectDb() {
-	dsn := "host=localhost user=postgres password=tatoro60 dbname=postgres port=5432 sslmode=disable"
+	dsn := "host=localhost user=garikkyarunts database=postgres password= dbname=postgres port=5432 sslmode=disable"
 	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 	if err != nil {
@@ -31,7 +31,7 @@ func ConnectDb() {
 
 	db.AutoMigrate(&models.User{}, &models.Product{}, &models.Order{})
 
-	Database = DbInstance{
+	Database = DBInstance{
 		Db: db,
 	}
 }

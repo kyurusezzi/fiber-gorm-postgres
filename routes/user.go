@@ -9,7 +9,6 @@ import (
 )
 
 type User struct {
-	// This is not the model, more like a serializer
 	ID        uint   `json:"id"`
 	FirstName string `json:"first_name"`
 	LastName  string `json:"last_name"`
